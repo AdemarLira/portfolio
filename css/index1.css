@@ -12,6 +12,24 @@ hr{
   height: 2px;
   background: #81735a;
   box-shadow: 0 2px 5px rgba(112, 34, 34, 1.8);
+  padding: 0;
+}
+
+.hr-animado{
+  border: none;
+  height: 2px;
+  background: #900000;
+  width: 0;
+  animation: expandirLinha 1s ease-out forwards;
+}
+
+@keyframes expandirLinha {
+  from {
+    width: 0;
+  }
+  to{
+    width: 70%
+  }
 }
 
 #logo-header img {
@@ -48,12 +66,11 @@ hr{
 
 /*Estilizacao para o envelope responsivo */
   .envelope-container {
-    width: 300px;
-    height: 150px;
+    width: 200px;
+    height: 100px;
     position: relative;
     margin: 40px;
     perspective: 1000px;
-    rotate: 20deg;
   }
 
   .envelope {
@@ -67,8 +84,7 @@ hr{
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     z-index: 2;
-  } 
-
+  }
   
   .envelope::before {
     content: "";
@@ -92,8 +108,8 @@ hr{
   }
 
   #paper {
-    width: 90%;
-    height: 120px;
+    width: 150px;
+    height: 80px;
     background: #b39c79;
     position: absolute;
     top: 10px;
@@ -120,6 +136,19 @@ hr{
 
   #ev-red{
     margin-left: 25%;
-    margin-top: -150px;
-
+    margin-top: 10px;
+    animation: surgirDeBaixo 0.8s ease-in-out forwards;
+    opacity: 0; /* começa invisível */
+    transform: translateY(20px); /* começa mais abaixo */
+  } 
+  
+@keyframes surgirDeBaixo {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* posição inicial: mais abaixo */
   }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* posição final: original */
+  }
+}
